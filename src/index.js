@@ -1,3 +1,3 @@
-import { app } from app
+import app from 'app'
 
-export function index() { app()}
+export function index() { app() }
