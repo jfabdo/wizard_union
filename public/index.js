@@ -25,6 +25,17 @@ const createScene = function () {
         {width: 6, height: 6}, scene);
     return scene;
 };
+const createUI = function () {
+    
+    const advancedTexture = BABYLON.GUI.AdvancedDynamicTexture.CreateFullscreenUI("myUI");
+    var button = BABYLON.GUI.Button.CreateSimpleButton("but1", "Click Me");
+    button.width = 0.2;
+    button.height = "40px";
+    button.color = "white";
+    button.background = "green";
+    advancedTexture.addControl(button);
+}
+
 const scene = createScene(); //Call the createScene function
 // Register a render loop to repeatedly render the scene
 engine.runRenderLoop(function () {
