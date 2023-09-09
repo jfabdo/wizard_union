@@ -1,11 +1,10 @@
-const canvas = document.getElementById("renderCanvas"); // Get the canvas element
-const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
+
 const createScene = function () {
     // Creates a basic Babylon Scene object
     const scene = new BABYLON.Scene(engine);
     // Creates and positions a free camera
-    const camera = new BABYLON.FreeCamera("camera1", 
-        new BABYLON.Vector3(0, 5, -10), scene);
+    const camera = new BABYLON.ArcRotateCamera("camera", BABYLON.Tools.ToRadians(90), 
+                    BABYLON.Tools.ToRadians(65), 10, BABYLON.Vector3.Zero(), scene);
     // Targets the camera to scene origin
     camera.setTarget(BABYLON.Vector3.Zero());
     // This attaches the camera to the canvas
@@ -36,6 +35,9 @@ const createUI = function () {
     advancedTexture.addControl(button);
 }
 
+
+const canvas = document.getElementById("renderCanvas"); // Get the canvas element
+const engine = new BABYLON.Engine(canvas, true); // Generate the BABYLON 3D engine
 const scene = createScene(); //Call the createScene function
 // Register a render loop to repeatedly render the scene
 engine.runRenderLoop(function () {
